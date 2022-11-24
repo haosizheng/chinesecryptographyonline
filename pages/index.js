@@ -104,24 +104,25 @@ export default function Home() {
 
         {/* <form> */}
         {/* <label htmlFor="first">Input Field</label> */}
-        <textarea className={styles.input} name="input" id="input"></textarea>
-        <button type="encode" onClick={EncodeContent}>Encode</button>
+        <textarea name="input" id="input"></textarea>
+        <button className={styles.encodeButton} onClick={EncodeContent}>Encode</button>
         {/* <label htmlFor="last">Result</label> */}
         <textarea className={styles.input} name="output" id="output"></textarea>
-        <button type="decode" onClick={DecodeContent}>Decode</button>
+        <button onClick={DecodeContent}>Decode</button>
         {/* </form> */}
 
       </main>
 
       <footer>
-        <a
+        {/* <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
           target="_blank"
           rel="noopener noreferrer"
         >
           Powered by{' '}
           <img src="/vercel.svg" alt="Vercel" className={styles.logo} />
-        </a>
+        </a> */}
+        <div  /> 佣妅佘室柨怠惶
       </footer>
 
       <style jsx>{`
