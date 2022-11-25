@@ -28,7 +28,7 @@ export default function Home() {
       key = "" + key;
     }
     const keyField = document.querySelector('#key');
-    keyField.value = key;
+    keyField.value = 404;
 
     // chinese range
     // 0x4E00 , 19968
