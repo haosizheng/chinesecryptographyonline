@@ -127,10 +127,14 @@
 
 .headerSpace{
   padding: 24px;
+  /* background: yellow; */
+
   /* line-height: 4em;  */
 }
 
 .encodeButton{
+  /* background: #0070f3; */
+  width: 100px;
   /* padding: 24px; */
   /* line-height: 4em;  */
 }

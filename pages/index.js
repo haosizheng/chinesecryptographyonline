@@ -7,12 +7,20 @@ export default function Home() {
 
   var key = 0;
 
+  function SetKey(){
+    const keyField = document.querySelector('#key');
+    if(keyField.value == null){
+      alert("input key with 4 number! ");
+    }
+    key = keyField.value;
+  }
+
   function CreateKey(){
     var key1 = Math.floor(Math.random() * 10);
     var key2 = Math.floor(Math.random() * 10);
     var key3 = Math.floor(Math.random() * 10);
     var key4 = Math.floor(Math.random() * 10);
-    var key5 = Math.floor(Math.random() * 10);
+    // var key5 = Math.floor(Math.random() * 10);
 
     key = key1*1 + key2*10 + key3+100 + key4*1000;
 
@@ -51,28 +59,23 @@ export default function Home() {
       for (var i = 0; i < inputValue.length; i++) {
         var char = inputValue.charAt(i);
         var unicode = inputValue.charCodeAt(i);
-        if (aUnicode <= unicode && unicode <= zUnicode) {
-          // alert("small with a unicode: " + unicode +
-          // "between " + aUnicode + " and " + zUnicode);
-          char = char; // no changes
-          output += char;
-        }
-        else if (AUnicode <= unicode && unicode <= ZUnicode) {
-          // alert("big with a unicode: " + unicode +
-          // "between " + AUnicode + " and " + ZUnicode);
-
-          char = char; // no changes
-          output += char;
-        }
-        else if (0x4E00 <= unicode && unicode <= 0x9FA5) {
+        // if (aUnicode <= unicode && unicode <= zUnicode) {
+        //   char = char; // no changes
+        //   output += char;
+        // }
+        // else if (AUnicode <= unicode && unicode <= ZUnicode) {
+        //   char = char; // no changes
+        //   output += char;
+        // }
+        // else if (0x4E00 <= unicode && unicode <= 0x9FA5) {
           var code = unicode + parseInt(key);
           var newChar = String.fromCharCode(code);
           output += newChar;
-        }
-        else {
-          char = char; // do nothing
-          output += char;
-        }
+        // }
+        // else {
+        //   char = char; // do nothing
+        //   output += char;
+        // }
       }
       outputField.value = output;
     }
@@ -95,28 +98,23 @@ export default function Home() {
         for (var i = 0; i < inputValue.length; i++) {
           var char = inputValue.charAt(i);
           var unicode = inputValue.charCodeAt(i);
-          if (aUnicode <= unicode && unicode <= zUnicode) {
-            // alert("small with a unicode: " + unicode +
-            // "between " + aUnicode + " and " + zUnicode);
-            char = char; // no changes
-            output += char;
-          }
-          else if (AUnicode <= unicode && unicode <= ZUnicode) {
-            // alert("big with a unicode: " + unicode +
-            // "between " + AUnicode + " and " + ZUnicode);
-  
-            char = char; // no changes
-            output += char;
-          }
-          else if (0x4E00 <= unicode && unicode <= 0x9FA5) {
+          // if (aUnicode <= unicode && unicode <= zUnicode) {
+          //   char = char; // no changes
+          //   output += char;
+          // }
+          // else if (AUnicode <= unicode && unicode <= ZUnicode) {
+          //   char = char; // no changes
+          //   output += char;
+          // }
+          // else if (0x4E00 <= unicode && unicode <= 0x9FA5) {
             var code = unicode - parseInt(key);
             var newChar = String.fromCharCode(code);
             output += newChar;
-          }
-          else {
-            char = char; // do nothing
-            output += char;
-          }
+          // }
+          // else {
+          //   char = char; // do nothing
+          //   output += char;
+          // }
         }
         outputField.value = output;
       }
@@ -138,6 +136,7 @@ export default function Home() {
         {/* <label htmlFor="first">Input Field</label> */}
         <textarea id="key"></textarea>
         <button className={styles.encodeButton} onClick={CreateKey}>New Key</button>
+        <button className={styles.encodeButton} onClick={SetKey}>Set Key</button>
         <textarea id="input"></textarea>
         <button className={styles.encodeButton} onClick={EncodeContent}>Encode</button>
         {/* <label htmlFor="last">Result</label> */}
