@@ -3,6 +3,37 @@ import styles from '../styles/Home.module.css';
 
 export default function Home() {
 
+  // const key = 12;
+
+  var key = 0;
+
+  function CreateKey(){
+    var key1 = Math.floor(Math.random() * 10);
+    var key2 = Math.floor(Math.random() * 10);
+    var key3 = Math.floor(Math.random() * 10);
+    var key4 = Math.floor(Math.random() * 10);
+    var key5 = Math.floor(Math.random() * 10);
+
+    key = key1*1 + key2*10 + key3+100 + key4*1000;
+
+    if(key4==0){
+      key = "0" + key;
+    }else{
+      key = "" + key;
+    }
+    const keyField = document.querySelector('#key');
+    keyField.value = key;
+
+    // 0x4E00 , 19968
+    // 0x9FA5 , 40869
+  }
+
+  // const keyField = document.querySelector('#key');
+
+  // keyField.value = key;
+  
+  // alert(key);
+
   function EncodeContent() {
     const inputValue = document.querySelector('#input').value;
     const outputField = document.querySelector('#output');
@@ -34,7 +65,8 @@ export default function Home() {
           output += char;
         }
         else if (0x4E00 <= unicode && unicode <= 0x9FA5) {
-          var newChar = String.fromCharCode(unicode + 3);
+          var code = unicode + parseInt(key);
+          var newChar = String.fromCharCode(code);
           output += newChar;
         }
         else {
@@ -77,7 +109,8 @@ export default function Home() {
             output += char;
           }
           else if (0x4E00 <= unicode && unicode <= 0x9FA5) {
-            var newChar = String.fromCharCode(unicode - 3);
+            var code = unicode - parseInt(key);
+            var newChar = String.fromCharCode(code);
             output += newChar;
           }
           else {
@@ -101,14 +134,15 @@ export default function Home() {
           Learn Cryptography Online
         </h1>
         <div className={styles.headerSpace}></div>
-
         {/* <form> */}
         {/* <label htmlFor="first">Input Field</label> */}
-        <textarea name="input" id="input"></textarea>
+        <textarea id="key"></textarea>
+        <button className={styles.encodeButton} onClick={CreateKey}>New Key</button>
+        <textarea id="input"></textarea>
         <button className={styles.encodeButton} onClick={EncodeContent}>Encode</button>
         {/* <label htmlFor="last">Result</label> */}
-        <textarea className={styles.input} name="output" id="output"></textarea>
-        <button onClick={DecodeContent}>Decode</button>
+        <textarea className={styles.input} id="output"></textarea>
+        <button className={styles.encodeButton} onClick={DecodeContent}>Decode</button>
         {/* </form> */}
 
       </main>
