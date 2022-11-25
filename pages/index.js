@@ -3,8 +3,6 @@ import styles from '../styles/Home.module.css';
 
 export default function Home() {
 
-  // const key = 12;
-
   var key = 0;
 
   function SetKey(){
@@ -32,6 +30,7 @@ export default function Home() {
     const keyField = document.querySelector('#key');
     keyField.value = key;
 
+    // chinese range
     // 0x4E00 , 19968
     // 0x9FA5 , 40869
   }
